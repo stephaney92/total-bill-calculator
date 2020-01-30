@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         twentyButton = findViewById(R.id.twentyButton);
         twentyFiveButton = findViewById(R.id.twentyFiveButton);
     }
-    public void tipCalc(View v){
+
+    public void tipCalc(View v) {
         if (eighteenButton.isChecked()) {
 
             //taking number and turning into a string
@@ -41,7 +42,28 @@ public class MainActivity extends AppCompatActivity {
                 double costValue = costBeforeValue * 0.18;
                 //calculates in the line the split total line
                 splitTotal.setText(String.format("%.1f", costValue));
-                }
+            }
+        } else if (twentyButton.isChecked()) {
+            //taking number and turning it into a string
+            String inputCostBeforeTip = totalCostBeforeTip.getText().toString();
+            if (inputCostBeforeTip.length() > 0) {
+                //turns string into a number
+                double costBeforeValue = Double.parseDouble(inputCostBeforeTip);
+                double costValue = costBeforeValue * 0.20;
+                //calculates in the line the split total line
+                splitTotal.setText(String.format("%.1f", costValue));
+            }
+
+        } else if (twentyFiveButton.isChecked()) {
+            //taking number and turning it into a string
+            String inputCostBeforeTip = totalCostBeforeTip.getText().toString();
+            if (inputCostBeforeTip.length() > 0) {
+                //turns string into a number
+                double costBeforeValue = Double.parseDouble(inputCostBeforeTip);
+                double costValue = costBeforeValue * 0.20;
+                //calculates in the line the split total line
+                splitTotal.setText(String.format("%.1f", costValue));
             }
         }
     }
+}
